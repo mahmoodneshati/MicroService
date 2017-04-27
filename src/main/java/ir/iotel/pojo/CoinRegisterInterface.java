@@ -78,9 +78,9 @@ public class CoinRegisterInterface {
         int result =0;
         try {
             if(serviceName.equalsIgnoreCase("upper"))
-                result = CoinThresholdTrigger.addTreshold(this.filters.coinType, this.filters.tresholdValue, CoinThresholdTrigger.GOUP);
+                result = CoinThresholdTrigger.addTreshold( this.filters.tresholdValue, CoinThresholdTrigger.GOUP);
             else if(serviceName.equalsIgnoreCase("lower"))
-                result = CoinThresholdTrigger.addTreshold(this.filters.coinType, this.filters.tresholdValue, CoinThresholdTrigger.GODOWN);
+                result = CoinThresholdTrigger.addTreshold( this.filters.tresholdValue, CoinThresholdTrigger.GODOWN);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -89,16 +89,7 @@ public class CoinRegisterInterface {
     }
 
     static class FilterVaribales {
-        private String coinType;
         private double tresholdValue;
-
-        public String getCoinType() {
-            return coinType;
-        }
-
-        public void setCoinType(String coinType) {
-            this.coinType = coinType;
-        }
 
         public double getTresholdValue() {
             return tresholdValue;

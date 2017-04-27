@@ -34,10 +34,10 @@ public class StringUtil {
 
     /*_______________________ Coin Hobab ____________________________*/
 
-    public static final String Hobab_Level_HIGH_PERSIAN = "\\u062D\\u0628\\u0627\\u0628 \\u0632\\u06CC\\u0627\\u062F";
+    public static final String Hobab_Level_HIGH_PERSIAN = "حباب زیاد (بیش از 100 هزارتومان)";
     public static final String Hobab_Level_HIGH = "Hobab_Level_HIGH";
 
-    public static final String Hobab_Level_MEDIUM_PERSIAN = "\\u062D\\u0628\\u0627\\u0628 \\u0645\\u062A\\u0648\\u0633\\u0637";
+    public static final String Hobab_Level_MEDIUM_PERSIAN = "حباب متوسط (بیش از 50 هزارتومان)";
     public static final String Hobab_Level_MEDIUM = "Hobab_Level_MEDIUM";
 
 

@@ -5,7 +5,6 @@ package ir.iotel.server;
  * mahmood.neshati@gmail.com
  */
 
-import entity.Gold;
 import ir.iotel.pojo.CoinRegisterInterface;
 import ir.iotel.pojo.GoldCurrentPriceRequest;
 import org.apache.commons.lang.StringEscapeUtils;
@@ -18,9 +17,7 @@ import util.StringUtil;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Properties;
+
 
 
 @Path("coin")
@@ -65,6 +62,7 @@ public class SDPEndpoint {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces("application/json")
     public String getCurrentGoldPrice(GoldCurrentPriceRequest goldPriceRequest) throws JSONException {
+        System.out.println(goldPriceRequest);
         JSONObject out = new JSONObject();
         out.put("message", GoldService.getInstance().getCurrentPriceMessage());
         return out.toString();

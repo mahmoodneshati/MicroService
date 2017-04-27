@@ -189,7 +189,6 @@ public class DBHelper {
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 CoinThresholdTrigger ct = new CoinThresholdTrigger(
-                        resultSet.getString("coinType"),
                         resultSet.getDouble("value"),
                         resultSet.getInt("goUpper"),null);
                 out.add(ct);
@@ -221,7 +220,6 @@ public class DBHelper {
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 CoinThresholdTrigger ct = new CoinThresholdTrigger(
-                        resultSet.getString("coinType"),
                         resultSet.getDouble("value"),
                         resultSet.getInt("goUpper"),null);
                 out.add(ct);

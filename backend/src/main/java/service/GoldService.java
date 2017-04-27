@@ -162,6 +162,34 @@ public class GoldService {
                     break;
                 }
             }
+            String pattern = "<table>\n" +
+                    "<tbody>\n" +
+                    "<tr>\n" +
+                    "<td>\n" +
+                    "<p>قیمت انواع سکه به شرح زیر است</p>\n" +
+                    "</td>\n" +
+                    "</tr>\n" +
+                    "<tr>\n" +
+                    "<td>\n" +
+                    "قیمت <strong>تمام سکه بهار آزادی</strong> مبلغ {0,number} ریال است\n" +
+                    "</td>\n" +
+                    "</tr>\n" +
+                    "<tr>\n" +
+                    "<td>\n" +
+                    "قیمت <strong>نیم سکه بهار آزادی</strong> مبلغ {1,number} ریال است\n" +
+                    "</td>\n" +
+                    "</tr>\n" +
+                    "<tr>\n" +
+                    "<td>\n" +
+                    "قیمت <strong>ربع سکه بهار آزادی</strong> مبلغ {2,number}ریال است\n" +
+                    "</td>\n" +
+                    "</tr>\n" +
+                    "<tr>\n" +
+                    "<td>قیمت <strong>سکه گرمی</strong> مبلغ {3,number} ریال است</td>\n" +
+                    "</tr>\n" +
+                    "</tbody>\n" +
+                    "</table>";
+/*
             return MessageFormat.format("<p>قیمت انواع سکه به شرح زیر است</p>\n" +
                     "<ul>\n" +
                     "<li>قیمت <strong>تمام سکه بهار آزادی</strong> مبلغ {0,number} ریال است</li>\n" +
@@ -169,6 +197,8 @@ public class GoldService {
                     "<li>قیمت <strong>ربع سکه بهار آزادی</strong> مبلغ {2,number}ریال است</li>\n" +
                     "<li>قیمت <strong>سکه گرمی</strong> مبلغ {3,number} ریال است</li>\n" +
                     "</ul>", seke_kamel, seke_nim, seke_rob, seke_gerami);
+*/
+            return MessageFormat.format(pattern,seke_kamel, seke_nim, seke_rob, seke_gerami);
 
         } catch (IOException e1) {
             e1.printStackTrace();

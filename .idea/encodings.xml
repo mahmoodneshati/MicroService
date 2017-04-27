@@ -11,6 +11,7 @@
     <file url="file://$PROJECT_DIR$/backend/src/main/java/trigger/CoinThresholdTrigger.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/backend/src/main/java/trigger/TriggerCaller.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/backend/src/main/java/util/DBHelper.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backend/src/main/java/util/StringUtil.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/backend/src/main/resources/config.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/ir/iotel/pojo/CoinRegisterInterface.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/ir/iotel/server/SDPEndpoint.java" charset="UTF-8" />

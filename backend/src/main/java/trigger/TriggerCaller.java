@@ -10,6 +10,7 @@ import org.apache.http.message.BasicNameValuePair;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -31,7 +32,7 @@ public abstract class TriggerCaller implements Serializable {
         for (String paramKey : params.keySet()) {
             urlParameters.add(new BasicNameValuePair(paramKey, params.get(paramKey)));
         }
-        post.setEntity(new UrlEncodedFormEntity(urlParameters));
+        post.setEntity(new UrlEncodedFormEntity(urlParameters, Charset.forName("UTF-8")));
         HttpResponse response = client.execute(post);
         System.out.println("Response Code for Service = : " + this.toString()
                 + response.getStatusLine().getStatusCode());

@@ -1,7 +1,10 @@
 package trigger;
 
+import util.StringUtil;
+
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.MessageFormat;
 import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.Properties;
@@ -16,9 +19,9 @@ public class CoinAnalyticsTrigger extends TriggerCaller {
     private static String sdpTriggerCoinAnalytics;
 
     // JSON Keys are
-    private static String  currentCoinValueKEY = "currentCoinValue";
-    private static String  realCoinValueKEY = "realCoinValue";
-    private static String  hobabValueKEY = "hobabValue";
+    //private static String  currentCoinValueKEY = "currentCoinValue";
+    //private static String  realCoinValueKEY = "realCoinValue";
+    //private static String  hobabValueKEY = "hobabValue";
     private static String  hobabLevelNameKEY = "hobabLevelName";
 
 
@@ -28,7 +31,7 @@ public class CoinAnalyticsTrigger extends TriggerCaller {
     private String  hobabLevelName;
 
     NumberFormat formatter = NumberFormat.getCurrencyInstance();
-
+    private String messageKEY = "message";
 
 
     public CoinAnalyticsTrigger(double currentCoinValue, double realCoinValue, double hobabLevel, String hobabLevelName) {
@@ -54,9 +57,46 @@ public class CoinAnalyticsTrigger extends TriggerCaller {
     @Override
     public void fillParams() {
         params.put(TriggerCaller.SDPURLKEY,sdpTriggerCoinAnalytics);
-        params.put(currentCoinValueKEY,formatter.format(currentCoinValue));
-        params.put(realCoinValueKEY,formatter.format(realCoinValue));
-        params.put(hobabValueKEY,formatter.format(hobabValue));
+        //params.put(currentCoinValueKEY,formatter.format(currentCoinValue));
+        //params.put(realCoinValueKEY,formatter.format(realCoinValue));
+        //params.put(hobabValueKEY,formatter.format(hobabValue));
         params.put(hobabLevelNameKEY,hobabLevelName);
+        params.put(messageKEY,getRenderedMessage());
     }
+
+    private String getRenderedMessage() {
+
+        String messagePattern  = "<table>\n" +
+                "<tbody>\n" +
+                "<tr>\n" +
+                "<td>\n" +
+                "<p>توجه امروز حباب سکه <strong>{0}</strong> است.</p>\n" +
+                "</td>\n" +
+                "</tr>\n" +
+                "<tr>\n" +
+                "<td>\n" +
+                "<p>قیمت سکه تمام بهار آزادی در بازار <strong>{1,number}</strong> ریال است</p>\n" +
+                "</td>\n" +
+                "</tr>\n" +
+                "<tr>\n" +
+                "<td>حباب سکه <strong>{2,number,integer}</strong> ریال است</td>\n" +
+                "</tr>\n" +
+                "</tbody>\n" +
+                "</table>";
+        return MessageFormat.format(messagePattern,getPersianName(hobabLevelName),currentCoinValue, hobabValue);
+
+    }
+
+    private String getPersianName(String hobabLevelName) {
+        switch (hobabLevelName) {
+            case StringUtil.Hobab_Level_HIGH:
+                return " زیاد";
+            case StringUtil.Hobab_Level_MEDIUM:
+                return " متوسط";
+        }
+        return "خالی";
+
+    }
+
+
 }
